@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Form</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url("{% static 'DProject/images/img4.jpg' %}");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .main {
+            width: 550px;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        h1 {
+            color: #0086b3;
+            font-size: 30px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        input[type=text],
+        input[type=number],
+        select {
+            width: 90%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        input[type=submit] {
+            background-color: #4dc3ff;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 15px;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        input[type=submit]:hover {
+            background-color: #3bb0e8;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h1>Enter Your Details</h1>
+        <form action="predict" method="post">
+            {% csrf_token %}
+            <input type="text" name="name" placeholder="Your Name" required><br>
+            <input type="number" name="age" placeholder="Your Age" required><br>
+            <input type="submit" value="Predict">
+        </form>
+    </div>
+</body>
+</html>
